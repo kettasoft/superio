@@ -1,0 +1,23 @@
+{
+    "name": "Code clouders/user",
+    "description": "",
+    "authors": [
+        {
+            "name": "Abdalrhman Emad Saad",
+            "email": "a.emad@codeclouders.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\User\\": ""
+        }
+    }
+}

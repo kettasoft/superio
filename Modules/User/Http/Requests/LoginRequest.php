@@ -1,12 +1,12 @@
 <?php
 
-namespace $NAMESPACE$;
+namespace Modules\User\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class $CLASS$ extends FormRequest
+class LoginRequest extends FormRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -16,7 +16,8 @@ class $CLASS$ extends FormRequest
     public function rules()
     {
         return [
-            //
+            'email' => ['required', 'email'],
+            'password' => ['required', 'string']
         ];
     }
 

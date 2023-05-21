@@ -1,13 +1,15 @@
 <?php
 
-namespace $NAMESPACE$;
+namespace Modules\User\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Validation\Rules\Password;
 
-class $CLASS$ extends FormRequest
+class CreateUserRequest extends FormRequest
 {
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -15,9 +17,15 @@ class $CLASS$ extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
-        ];
+        return array_merge(RegisterRequest::rules(), [
+            'phone' => ['nullable', 'string', 'unique:users'],
+            'country_code' => ['nullable', 'string'],
+            'website' => ['nullable', 'url'],
+            'experience' => ['nullable'],
+            'education_level' => ['nullable'],
+            'description' => ['nullable', 'string', 'max:10000'],
+            'status' => ['nullable', 'boolean'],
+        ]);
     }
 
     /**
